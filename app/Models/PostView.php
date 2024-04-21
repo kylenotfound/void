@@ -20,10 +20,9 @@ class PostView extends Model {
     ];
 
     public function post(): HasOne {
-        return $this->hasOne(Post::class);
+        return $this->hasOne(Post::class, 'id', 'post_id');
     }
     
-
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }

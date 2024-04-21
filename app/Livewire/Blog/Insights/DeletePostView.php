@@ -19,6 +19,7 @@ class DeletePostView extends Component {
 
     public function deletePostView() {
         $this->postView->delete();
+        $this->postView->post->update(['view_count' => $this->postView->post->view_count -= 1]);
         $this->showModal = false;
         $this->dispatch('post-view-deleted');
     }

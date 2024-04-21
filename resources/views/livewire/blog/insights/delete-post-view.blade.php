@@ -1,5 +1,3 @@
-@props(['viewer'])
-
 <div>
     <x-buttons.danger type="button" wire:click="$set('showModal', true)">
         Delete

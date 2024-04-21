@@ -21,7 +21,7 @@
                         <td class="px-6 py-4 whitespace-no-wrap">{{ $post->view_count }}</td>
                         <td class="px-6 py-4 whitespace-no-wrap">{{ $post->created_at->format('m/d/Y') }}</td>
                         <td>
-                            <x-buttons.link href="{{ route('blog.show', ['blog' => $post->slug]) }}" class="bg-purple-500 hover:bg-purple-800 dark:bg-purple-500 dark:hover:bg-purple-800">
+                            <x-buttons.link href="{{ route('blog.post.show', ['post' => $post->slug]) }}" class="bg-purple-500 hover:bg-purple-800 dark:bg-purple-500 dark:hover:bg-purple-800">
                                 <i class="fa-regular fa-eye"></i>
                             </x-buttons>
                             <x-buttons.link class="bg-green-300 hover:bg-green-600 dark:bg-green-300 dark:hover:bg-green-600">

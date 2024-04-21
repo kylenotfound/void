@@ -14,6 +14,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     {{-- display none is set here, but is removed on js load to avoid theme decision flicker --}}
     <body class="font-sans antialiased" style="display: none;">

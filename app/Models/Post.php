@@ -33,18 +33,14 @@ class Post extends Model {
     }
 
     public function addView(): self {
-        if (
-            (auth()->check() && $this->viewers->firstWhere('user_id', auth()->id()) === null) ||
-            (! auth()->check() && $this->viewers->firstWhere('ip', request()->ip()) === null)
-        ) {
-            $this->viewers()->create([
-                'post_id' => $this->getKey(), 
-                'user_id' => auth()->id() ?? null, 
-                'ip' => request()->ip()
-            ]);
+        $this->viewers()->updateOrCreate([
+            'post_id' => $this->getKey(), 
+            'ip' => request()->ip()
+        ], [
+            'user_id' => auth()->id() ?? null, 
+        ]);
 
-            $this->update(['view_count' => $this->attributes['view_count'] += 1 ]);
-        }
+        $this->update(['view_count' => $this->viewers->count()]);
 
         return $this;
     }

@@ -32,8 +32,4 @@
             </div>
         </div>
     </div>
-
-    @push('scripts')
-        @vite('resources/js/breeze.js')
-    @endpush
 </x-app-layout>
