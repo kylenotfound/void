@@ -12,7 +12,7 @@ class BlogPostTable extends Component {
     use WithSearchAndSort;
 
     public function mount() {
-        $this->sortField = 'title';
+        $this->sortField = 'created_at';
         $this->searchOptions = [
             'title',
             'view_count',
@@ -23,6 +23,7 @@ class BlogPostTable extends Component {
     public function render() {
         return view('livewire.blog.blog-post-table', [
             'posts' => Post::query()
+                ->where('user_id', auth()->id())
                 ->searchAll($this->searchOptions, $this->search)
                 ->orderBy($this->sortField, $this->sortDirection)
                 ->paginate($this->rowCount),

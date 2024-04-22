@@ -13,7 +13,7 @@ function generateEditor(html = "", theme = null) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    generateEditor();
+    generateEditor(document.getElementById('content').value);
 });
 
 document.getElementsByClassName('theme-manager-btn')[0].addEventListener('click', function(e) {
@@ -21,4 +21,15 @@ document.getElementsByClassName('theme-manager-btn')[0].addEventListener('click'
         window.__toast.getMarkdown(), 
         window.__toast.options.theme === 'dark' ? 'light' : 'dark'
     );
+});
+
+document.getElementById('clear-editor-btn').addEventListener('click', function(e) {
+    generateEditor();
+});
+
+/* Inject toast content into hidden html form input */
+document.getElementById('postForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('content').value = window.__toast.getMarkdown();
+    this.submit();
 });

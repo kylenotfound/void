@@ -1,8 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Blog Posts') }}
-        </h2>
+        <div class="flex justify-between">
+            <div>
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    {{ __('Blog Posts') }}
+                </h2>
+            </div>
+            <div>
+                <x-buttons.link href="{{ route('blog.create') }}">
+                    {{ __('Write a new post') }}
+                </x-buttons.link>
+            </div>
+        </div>
     </x-slot>
 
     <section>

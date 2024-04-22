@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Post extends Model {
     use HasFactory;
@@ -19,6 +20,21 @@ class Post extends Model {
         'content',
         'view_count'
     ];
+
+    public static function boot() {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->user_id = auth()->id();
+            $model->slug = Str::kebab(request()->title);
+        });
+
+        static::updating(function ($model) {
+            if (request()->title) {
+                $model->slug = Str::kebab(request()->title);
+            }
+        });
+    }
 
     public function author(): BelongsTo {
         return $this->belongsTo(User::class, 'user_id', 'id');

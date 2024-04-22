@@ -1,14 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Write something great!') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Edit your post. Make it even greater!') }}
+            </h2>
+            <x-buttons.link href="{{ route('blog.index') }}" class="bg-purple-500 hover:bg-purple:800 dark:bg-purple-500 dark:hover:bg-purple-800">
+                {{ __('Go Back') }}
+            </x-buttons>
+        </div>
     </x-slot>
 
     <section>
         <div class="p-6">
-            <form action="{{ route('blog.store') }}" method="POST" id="postForm">
+            <form action="{{ route('blog.update', ['blog' => $post->getKey()]) }}" method="POST" id="newPostForm">
                 @csrf
+                @method('patch')
                 <div class="grid grid-cols-2 justify-between">
                     <div>
                         <x-input-label for="title" :value="__('Title')" />
@@ -17,7 +23,7 @@
                             class="block mt-1 w-full mb-4"
                             type="text"
                             name="title"
-                            :value="old('title')"
+                            :value="$post->title"
                             autocomplete="title"
                             required
                         />
@@ -25,16 +31,16 @@
                     </div>
                     <div class="flex justify-end mt-4 mb-4">
                         <x-buttons.primary class="mr-2" type="submit">
-                            Submit
+                            Update
                         </x-buttons.primary>
-
+                        
                         <x-buttons.danger type="button" id="clear-editor-btn">
                             <x-icons.trash></x-icons>
                         </x-buttons.danger>
                     </div>
                 </div>
                 <div>
-                    <x-custom.toast />
+                    <x-custom.toast :content="$post->content" />
                 </div>
             </form>
         </div>

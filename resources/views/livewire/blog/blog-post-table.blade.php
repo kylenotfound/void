@@ -22,16 +22,16 @@
                         <td class="px-6 py-4 whitespace-no-wrap">{{ $post->created_at->format('m/d/Y') }}</td>
                         <td>
                             <x-buttons.link href="{{ route('blog.post.show', ['post' => $post->slug]) }}" class="bg-purple-500 hover:bg-purple-800 dark:bg-purple-500 dark:hover:bg-purple-800">
-                                <i class="fa-regular fa-eye"></i>
+                                <x-icons.eye></x-icons>
                             </x-buttons>
-                            <x-buttons.link class="bg-green-300 hover:bg-green-600 dark:bg-green-300 dark:hover:bg-green-600">
-                                <i class="fa-solid fa-pencil"></i>
+                            <x-buttons.link href="{{ route('blog.edit', ['blog' => $post->slug]) }}" class="bg-green-300 hover:bg-green-600 dark:bg-green-300 dark:hover:bg-green-600">
+                                <x-icons.pencil></x-icons>
                             </x-buttons>
                             <x-buttons.link class="bg-red-500 hover:bg-red-800 dark:bg-red-500 dark:hover:bg-red-800">
-                                <i class="fa-sharp fa-solid fa-trash"></i>
+                                <x-icons.trash></x-icons>
                             </x-buttons>
                             <x-buttons.link href="{{ route('blog.insights', ['slug' => $post->slug]) }}" class="bg-yellow-300 hover:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-500">
-                                <i class="fa-solid fa-chart-simple"></i>
+                                <x-icons.stats></x-icons>
                             </x-buttons>
                         </td>
                     </tr>

@@ -8,7 +8,7 @@ trait WithSearchAndSort {
     public array $searchOptions = [];
 
     public string $sortField = '';
-    public string $sortDirection = 'asc';
+    public string $sortDirection = 'desc';
     public int $rowCount = 5;
 
     function sortBy($field) {

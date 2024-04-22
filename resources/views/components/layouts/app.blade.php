@@ -9,6 +9,8 @@
 
     <!-- Page Content -->
     <main>
+        @include('components.layouts.partials.messages')
+
         @if (isset($header))
             <!-- Page Heading -->
             <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -19,7 +21,7 @@
                 </header>
             </section>
         @endif
-        
+
         <!-- Page Body -->
         <section>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
