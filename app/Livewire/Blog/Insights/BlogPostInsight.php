@@ -13,7 +13,7 @@ class BlogPostInsight extends Component {
     use WithSearchAndSort;
 
     public $post;
-    protected $listeners = ['post-view-deleted' => '$refresh'];
+    protected $listeners = ['postview-deleted' => '$refresh'];
 
     public function mount() {
         $this->post = Post::where('slug', request()->slug)->first();

@@ -34,7 +34,7 @@
                             {{ $viewer->read_at }}
                         </td>
                         <td>
-                            <livewire:blog.insights.delete-post-view :postView="$viewer" wire:key="{{ $viewer->getKey() }}" />
+                            <livewire:blog.insights.delete-post-view :entity="$viewer" wire:key="{{ $viewer->getKey() }}" />
                         </td>
                     </tr>
                 @endforeach

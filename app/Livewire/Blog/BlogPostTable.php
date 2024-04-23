@@ -11,6 +11,8 @@ class BlogPostTable extends Component {
     use WithPagination;
     use WithSearchAndSort;
 
+    protected $listeners = ['post-deleted' => '$refresh'];
+
     public function mount() {
         $this->sortField = 'created_at';
         $this->searchOptions = [

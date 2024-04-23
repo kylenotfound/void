@@ -21,18 +21,26 @@
                         <td class="px-6 py-4 whitespace-no-wrap">{{ $post->view_count }}</td>
                         <td class="px-6 py-4 whitespace-no-wrap">{{ $post->created_at->format('m/d/Y') }}</td>
                         <td>
-                            <x-buttons.link href="{{ route('blog.post.show', ['post' => $post->slug]) }}" class="bg-purple-500 hover:bg-purple-800 dark:bg-purple-500 dark:hover:bg-purple-800">
-                                <x-icons.eye></x-icons>
-                            </x-buttons>
-                            <x-buttons.link href="{{ route('blog.edit', ['blog' => $post->slug]) }}" class="bg-green-300 hover:bg-green-600 dark:bg-green-300 dark:hover:bg-green-600">
-                                <x-icons.pencil></x-icons>
-                            </x-buttons>
-                            <x-buttons.link class="bg-red-500 hover:bg-red-800 dark:bg-red-500 dark:hover:bg-red-800">
-                                <x-icons.trash></x-icons>
-                            </x-buttons>
-                            <x-buttons.link href="{{ route('blog.insights', ['slug' => $post->slug]) }}" class="bg-yellow-300 hover:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-500">
-                                <x-icons.stats></x-icons>
-                            </x-buttons>
+                            <div class="flex">
+                                <div>
+                                    <x-buttons.link href="{{ route('blog.post.show', ['post' => $post->slug]) }}" class="bg-purple-500 hover:bg-purple-800 dark:bg-purple-500 dark:hover:bg-purple-800">
+                                        <x-icons.eye></x-icons>
+                                    </x-buttons>
+                                </div>
+                                <div>
+                                    <x-buttons.link href="{{ route('blog.edit', ['blog' => $post->slug]) }}" class="bg-green-300 hover:bg-green-600 dark:bg-green-300 dark:hover:bg-green-600">
+                                        <x-icons.pencil></x-icons>
+                                    </x-buttons>
+                                </div>
+                                <div>
+                                    <livewire:blog.delete-blog-post :entity="$post" wire:key="{{ $post->slug }}" />
+                                </div>
+                                <div>
+                                    <x-buttons.link href="{{ route('blog.insights', ['slug' => $post->slug]) }}" class="bg-yellow-300 hover:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-500">
+                                        <x-icons.stats></x-icons>
+                                    </x-buttons>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

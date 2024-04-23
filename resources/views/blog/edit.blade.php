@@ -12,7 +12,7 @@
 
     <section>
         <div class="p-6">
-            <form action="{{ route('blog.update', ['blog' => $post->getKey()]) }}" method="POST" id="newPostForm">
+            <form action="{{ route('blog.update', ['blog' => $post->getKey()]) }}" method="POST" id="postForm">
                 @csrf
                 @method('patch')
                 <div class="grid grid-cols-2 justify-between">
