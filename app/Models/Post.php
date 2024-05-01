@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,8 +26,10 @@ class Post extends Model {
         parent::boot();
 
         static::creating(function ($model) {
-            $model->user_id = auth()->id();
-            $model->slug = Str::kebab(request()->title);
+            if (auth()->check()) {
+                $model->user_id = auth()->id();
+                $model->slug = Str::kebab(request()->title);
+            }
         });
 
         static::updating(function ($model) {

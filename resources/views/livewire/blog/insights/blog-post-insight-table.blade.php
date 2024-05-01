@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 @foreach ($viewers as $viewer)
-                    <tr>
+                    <tr wire:key="view-{{ $viewer->getKey() }}">
                         <td class="px-6 py-4 whitespace-no-wrap">
                             {{ $viewer->ip }}
                         </td>
@@ -34,7 +34,10 @@
                             {{ $viewer->read_at }}
                         </td>
                         <td>
-                            <livewire:blog.insights.delete-post-view :entity="$viewer" wire:key="{{ $viewer->getKey() }}" />
+                            <livewire:blog.insights.delete-post-view 
+                                :entity="$viewer" 
+                                wire:key="view-delete-button-{{ $viewer->getKey() }}" 
+                            />
                         </td>
                     </tr>
                 @endforeach

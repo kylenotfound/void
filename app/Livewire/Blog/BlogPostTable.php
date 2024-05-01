@@ -25,6 +25,7 @@ class BlogPostTable extends Component {
     public function render() {
         return view('livewire.blog.blog-post-table', [
             'posts' => Post::query()
+                ->select('id', 'user_id', 'title', 'slug', 'created_at', 'view_count')
                 ->where('user_id', auth()->id())
                 ->searchAll($this->searchOptions, $this->search)
                 ->orderBy($this->sortField, $this->sortDirection)

@@ -14,7 +14,7 @@ class PostFactory extends Factory {
             'user_id' => 1,
             'title' => $title,
             'slug' => Str::kebab($title),
-            'content' => $this->faker->paragraphs(10, true),
+            'content' => $this->faker->paragraphs(30, true),
             'view_count' => 0,
         ];
     }
