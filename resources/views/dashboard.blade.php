@@ -6,21 +6,41 @@
     </x-slot>
 
     <section>
-        <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
-            <div>
-                <div class="flex justify-between mb-2">
+        <div class="m-4 p-4">
+            @if (auth()->user()->isAdmin())
+                <div class="bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 mb-4">
                     <div>
-                        <h2 class="text-4xl font-semibold custom-underline">
-                            Blog Posts
-                        </h2>
-                    </div>
-                    <div class="mt-2">
-                        <a href="{{ route('blog.index') }}" class="text-2xl">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <h2 class="text-4xl font-semibold custom-underline">
+                                    User Manager
+                                </h2>
+                            </div>
+                            <div class="mt-2">
+                                <a href="{{ route('users.manage') }}" class="text-2xl">
+                                    <i class="fa-regular fa-user"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-100 shadow-md rounded-lg p-6 mb-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <h2 class="text-4xl font-semibold custom-underline">
+                                    Blog Posts
+                                </h2>
+                            </div>
+                            <div class="mt-2">
+                                <a href="{{ route('blog.index') }}" class="text-2xl">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
 </x-app-layout>

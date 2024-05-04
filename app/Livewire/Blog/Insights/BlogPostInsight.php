@@ -30,7 +30,7 @@ class BlogPostInsight extends Component {
         return view('livewire.blog.insights.blog-post-insight-table', [
             'viewers' => PostView::query()
                 ->select('post_views.*', 'users.username')
-                ->join('users', 'users.id', 'post_views.user_id')
+                ->leftjoin('users', 'users.id', 'post_views.user_id')
                 ->where('post_id', $this->post->getKey())
                 ->searchAll($this->searchOptions, $this->search)
                 ->orderBy($this->sortField, $this->sortDirection)

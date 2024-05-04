@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 @foreach ($posts as $post)
-                    <tr wire:key="post-{{ $post->getKey() }}" >
+                    <tr wire:key="post-{{ $post->getKey() }}">
                         <td class="whitespace-no-wrap">
                             <a class="inline-block px-4 py-2 text-blue-500 hover:text-blue-700" target="_blank" href="{{ route('blog.post.show', $post->slug) }}">
                                 {{ $post->title }}

@@ -29,8 +29,7 @@ class BlogPostTable extends Component {
                 ->where('user_id', auth()->id())
                 ->searchAll($this->searchOptions, $this->search)
                 ->orderBy($this->sortField, $this->sortDirection)
-                ->paginate($this->rowCount),
-            'searchOptions' => $this->searchOptions
+                ->paginate($this->rowCount)
         ]);
     }
 }
