@@ -1,4 +1,12 @@
 <x-app-layout>
+    @section('title')
+        {{ $post->title }}
+    @endsection
+
+    @section('description')
+        {{ substr($post->content, 0, 100) }}
+    @endsection
+
     <x-slot name="header">
         <div class="flex justify-between mb-2">
             <div>

@@ -21,7 +21,7 @@ class BlogController extends Controller {
     public function store(PostStoreRequest $request): RedirectResponse {
         Post::create($request->all());
 
-        return redirect(route('blog.index'));
+        return redirect(route('blog.index'))->with('success', 'Blog post published successfully.');
     }
 
     public function show(string $slug): View {

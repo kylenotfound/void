@@ -11,8 +11,8 @@
                 @csrf
                 <div class="grid grid-cols-2 justify-between">
                     <div>
-                        <x-input-label for="title" :value="__('Title')" />
-                        <x-text-input 
+                        <x-forms.input-label for="title" :value="__('Title')" />
+                        <x-forms.text-input 
                             id="title" 
                             class="block mt-1 w-full mb-4"
                             type="text"
@@ -21,7 +21,7 @@
                             autocomplete="title"
                             required
                         />
-                        <x-input-error :messages="$errors->get('title')" class="mt-2 mb-2" />
+                        <x-forms.input-error :messages="$errors->get('title')" class="mt-2 mb-2" />
                     </div>
                     <div class="flex justify-end mt-4 mb-4">
                         <x-buttons.primary class="mr-2" type="submit">

@@ -1,6 +1,6 @@
 <div class="flex justify-between pb-4">
     <div class="w-1/2">
-        <x-text-input
+        <x-forms.text-input
             class="w-full"
             placeholder="Search..."
             wire:model.live="search" 

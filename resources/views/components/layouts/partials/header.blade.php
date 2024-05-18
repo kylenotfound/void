@@ -5,7 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Kyle\'s Void') }}</title>
+        <title>@yield('title', "Kyle's Void")</title>
+
+        <meta name="description" content="@yield('description')">
+        <meta name="og:description" content="Kyle's Void">
+        <meta name="og:title" content="@yield('title', "Kyle's Void")">
+        <meta name="og:description" content="@yield('description')">
+        <meta name="og:url" content="{{ request()->url() }}">
+        <meta name="og:type" content="website">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

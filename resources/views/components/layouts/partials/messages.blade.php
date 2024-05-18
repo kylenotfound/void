@@ -17,6 +17,7 @@
                 </button>
             </div>
         @endif
+        
         @if (session()->has('errors'))
             <div x-data="{ show: true }" x-show="show" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                 <span class="sr-only">Danger</span>
